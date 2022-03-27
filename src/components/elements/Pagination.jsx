@@ -1,5 +1,6 @@
 import "./Pagination.css";
 
+//Pagination.
 const Pagination = ({ active, next, prev, page }) => {
   return (
     <div className="pagination">

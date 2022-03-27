@@ -5,9 +5,11 @@ import time from "../../assets/icons/time.svg";
 import heart from "../../assets/icons/heart.svg";
 import heartfill from "../../assets/icons/heart-fill.svg";
 
+//News.
 const News = ({ id, author, story_title, story_url, created_at, fav }) => {
   const [like, setLike] = useState(false);
 
+  //Default obj to set in LocalSotrage.
   const obj = {
     id: id,
     author: author,
@@ -16,6 +18,7 @@ const News = ({ id, author, story_title, story_url, created_at, fav }) => {
     story_title: story_title,
   };
 
+  //Save an array of obj to LocalStorage.
   const handleClick = () => {
     var favo = JSON.parse(localStorage.getItem("fav"));
 

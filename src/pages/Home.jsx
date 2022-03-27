@@ -9,7 +9,7 @@ import Options from "../components/elements/Options";
 import Container from "../components/containers/Container";
 import Pagination from "../components/elements/Pagination";
 
-//Home Page
+//Home Page.
 const Home = () => {
   const item = localStorage.getItem("selectedOption");
   const [page, setPage] = useState(0);

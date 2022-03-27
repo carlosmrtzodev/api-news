@@ -3,7 +3,7 @@ import Error from "../components/elements/Error";
 import Header from "../components/elements/Header";
 import Container from "../components/containers/Container";
 
-//404 page
+//404 page.
 const NotFound = () => {
   return (
     <>

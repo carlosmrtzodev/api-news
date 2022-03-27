@@ -4,6 +4,7 @@ import vue from "../../assets/icons/vue.png";
 import react from "../../assets/icons/react.png";
 import angular from "../../assets/icons/angular.png";
 
+//Select with React-Select.
 const options = [
   {
     value: "angular",

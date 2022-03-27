@@ -1,5 +1,6 @@
 import "./Container.css";
 
+//Simple Container.
 const Container = ({ children }) => {
   return (
     <main className="home">

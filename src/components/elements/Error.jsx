@@ -1,5 +1,6 @@
 import "./Error.css";
 
+//Error for 404 and if Fetching the API response with error.
 const Error = ({ children }) => {
   return (
     <div className="error">
