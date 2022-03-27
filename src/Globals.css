@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-family: sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background-color: #fcfcfc;
+}
+section {
+  margin: 4rem 0;
+  min-height: 100vh;
+}
+a {
+  color: unset;
+}
