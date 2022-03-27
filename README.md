@@ -4,7 +4,7 @@
 Hacker News API REST with React.js with React Router, React-Select and Moment. <br><br>
 </div>
 
-[![Hacker News Banner](./public/banner.png)](https://www.carlosmrtzo.com/)
+[![Hacker News Banner](./public/banner.jpeg)](https://www.carlosmrtzo.com/)
 
 ## 💼 Used technologies
 
