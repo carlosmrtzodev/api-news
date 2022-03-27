@@ -77,7 +77,7 @@ const Home = () => {
 
           <Grid>
             {articles.map(
-              (article) =>
+              (article, index) =>
                 article.author &&
                 article.story_title &&
                 article.story_url &&

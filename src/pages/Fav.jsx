@@ -16,26 +16,26 @@ const Fav = () => {
       <Nav />
 
       {favorites ? (
-        favorites.map(
-          (favorite) =>
-            favorite.author &&
-            favorite.story_title &&
-            favorite.story_url &&
-            favorite.created_at && (
-              <Container>
-                <Grid>
+        <Container>
+          <Grid>
+            {favorites.map(
+              (favorite, index) =>
+                favorite.author &&
+                favorite.story_title &&
+                favorite.story_url &&
+                favorite.created_at && (
                   <News
-                    key={favorite.objectID}
+                    key={index}
                     author={favorite.author}
                     story_title={favorite.story_title}
                     story_url={favorite.story_url}
                     created_at={favorite.created_at}
                     fav={true}
                   />
-                </Grid>
-              </Container>
-            )
-        )
+                )
+            )}
+          </Grid>
+        </Container>
       ) : (
         <Error>You do not have favorite posts.</Error>
       )}
