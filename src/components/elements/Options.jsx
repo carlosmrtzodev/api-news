@@ -1,50 +1,64 @@
-import "./Options.css";
-import Select from "react-select";
-import vue from "../../assets/icons/vue.png";
-import react from "../../assets/icons/react.png";
-import angular from "../../assets/icons/angular.png";
+import { Icons } from "./Icons";
+import { useState } from "react";
 
-//Select with React-Select.
-const options = [
-  {
-    value: "angular",
-    label: (
-      <div className="select__options-icon">
-        <img src={angular} alt="Icons" className="select__options-icon_image" />{" "}
-        Angular
-      </div>
-    ),
-  },
-  {
-    value: "reactjs",
-    label: (
-      <div className="select__options-icon">
-        <img src={react} alt="Icons" className="select__options-icon_image" />{" "}
-        React
-      </div>
-    ),
-  },
-  {
-    value: "vuejs",
-    label: (
-      <div className="select__options-icon">
-        <img src={vue} alt="Icons" className="select__options-icon_image" /> Vue
-      </div>
-    ),
-  },
-];
+const Options = ({ method, elements }) => {
+  const options = ["Angular", "React", "Vue"];
 
-const Options = ({ method }) => {
+  const [active, setActive] = useState(false);
+  const [selected, setSelected] = useState(
+    localStorage.getItem("selectedOption")
+  );
+
+  const handleClick = (value) => () => {
+    setActive(false);
+    setSelected(value);
+    method(value);
+  };
+
   return (
-    <div className="select">
-      <Select
-        options={options}
-        className="select__options"
-        placeholder="Select your news"
-        onChange={method}
-        selectOption
-      />
+    <div className='options'>
+      <div className='select__option'>
+        <div className='select__option-container'>
+          <div
+            className='select__option-container_selected'
+            onClick={() => setActive(!active)}>
+            <span className='select__option-container_selected-option'>
+              {selected || "Angular"}
+              <Icons
+                name={`./${selected || "Angular"}.png`}
+                classes='select__option-container_selected-option_image'
+              />
+            </span>
+          </div>
+
+          {active && (
+            <div className='select__option-container_options'>
+              <ul className='select__option-container_options-list'>
+                {options.map((option) => (
+                  <li
+                    className='select__option-container_options-list_item'
+                    onClick={handleClick(option)}
+                    key={option}>
+                    {option}
+                    <Icons
+                      name={`./${option}.png`}
+                      classes='select__option-container_options-list_item-image'
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className='options__elements'>
+        <p className='options__elements-number'>
+          Found <strong>{elements}</strong> items.
+        </p>
+      </div>
     </div>
   );
 };
-export default Options;
+
+export { Options };

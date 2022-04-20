@@ -1,19 +1,22 @@
-import Nav from "../components/elements/Nav";
-import Error from "../components/elements/Error";
-import Header from "../components/elements/Header";
-import Container from "../components/containers/Container";
+import { Main } from "../components/containers/Main";
+import { Error } from "../components/elements/Error";
+import { Header } from "../components/elements/Header";
+import { Navbar } from "../components/elements/Navbar";
+import { Section } from "../components/containers/Section";
 
-//404 page.
 const NotFound = () => {
   return (
     <>
       <Header />
-      <Nav />
+      <Navbar />
 
-      <Container>
-        <Error>404: This Page Could Not Be Found</Error>
-      </Container>
+      <Main>
+        <Section page='section__error'>
+          <Error>404: This Page Could Not Be Found.</Error>
+        </Section>
+      </Main>
     </>
   );
 };
-export default NotFound;
+
+export { NotFound };

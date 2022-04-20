@@ -8,9 +8,12 @@
   justify-content: center;
 }
 .pagination__container-controls {
+  display: flex;
   cursor: pointer;
   font-size: 1.4rem;
   line-height: 1.57;
+  font-weight: bold;
+  align-items: center;
   font-weight: medium;
   font-family: Roboto;
   padding: 0.2rem 1rem;

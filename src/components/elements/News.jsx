@@ -1,16 +1,11 @@
 import "./News.css";
 import moment from "moment";
 import { useState } from "react";
-import time from "../../assets/icons/time.svg";
-import heart from "../../assets/icons/heart.svg";
-import heartfill from "../../assets/icons/heart-fill.svg";
 
-//News.
-const News = ({ id, author, story_title, story_url, created_at, fav }) => {
-  const [like, setLike] = useState(false);
+const News = ({ id, author, story_title, story_url, created_at, favorite }) => {
+  const [likes, setLikes] = useState(false);
 
-  //Default obj to set in LocalSotrage.
-  const obj = {
+  const object = {
     id: id,
     author: author,
     story_url: story_url,
@@ -18,44 +13,53 @@ const News = ({ id, author, story_title, story_url, created_at, fav }) => {
     story_title: story_title,
   };
 
-  //Save an array of obj to LocalStorage.
   const handleClick = () => {
-    var favo = JSON.parse(localStorage.getItem("fav"));
+    var favorites = JSON.parse(localStorage.getItem("fav"));
 
-    if (like) {
-      setLike(false);
-      var newfavo = favo.filter((item) => item.id !== id);
-      localStorage.setItem("fav", JSON.stringify(newfavo));
+    if (likes) {
+      setLikes(false);
+      var newFavorites = favorites.filter((item) => item.id !== id);
+      localStorage.setItem("fav", JSON.stringify(newFavorites));
     } else {
-      setLike(true);
-      favo ? favo.push(obj) : (favo = [obj]);
-      localStorage.setItem("fav", JSON.stringify(favo));
+      setLikes(true);
+      favorites ? favorites.push(object) : (favorites = [object]);
+      localStorage.setItem("fav", JSON.stringify(favorites));
     }
   };
 
   return (
-    <div className="news">
-      <a href={story_url} className="news__container">
-        <div className="news__container-content">
-          <span className="news__container-content_created">
-            <img src={time} className="news__container-content_created-icon " />{" "}
+    <div className='news'>
+      <a href={story_url} className='news__container'>
+        <div className='news__container-content'>
+          <span className='news__container-content_created'>
+            <figure>
+              <img
+                src='./time.svg'
+                className='news__container-content_created-icon'
+              />{" "}
+            </figure>
             {moment(created_at).fromNow()} by {author}
           </span>
 
-          <p className="news__container-content_title">{story_title}</p>
+          <h2 className='news__container-content_title'>{story_title}</h2>
         </div>
       </a>
 
-      {fav ? (
-        <div className="news__like">
-          <img src={heartfill} alt="Like" />
+      {favorite ? (
+        <div className='news__likes'>
+          <figure>
+            <img src='./heart-fill.svg' alt='Likes' />
+          </figure>
         </div>
       ) : (
-        <div className="news__like" onClick={handleClick}>
-          <img src={like ? heartfill : heart} alt="Like" />
+        <div className='news__likes' onClick={handleClick}>
+          <figure className='news__likes-image'>
+            <img src={likes ? "./heart-fill.svg" : "./heart.svg"} alt='Likes' />
+          </figure>
         </div>
       )}
     </div>
   );
 };
-export default News;
+
+export { News };

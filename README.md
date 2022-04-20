@@ -1,7 +1,7 @@
 ## 📄 Intro.
 
 <div align="center">
-Hacker News with React.js with React Router, React-Select and Moment. <br><br>
+Simple News App with React.js. <br><br>
 </div>
 
 [![Hacker News Banner](./public/banner.jpeg)](https://zesty-buttercream-90d152.netlify.app/)
